@@ -1,7 +1,9 @@
 package com.zoomcar.zoomcar.controller;
 
+import com.zoomcar.zoomcar.Model.Booking;
 import com.zoomcar.zoomcar.Model.Vehicle;
 import com.zoomcar.zoomcar.Model.VehicleType;
+import com.zoomcar.zoomcar.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +12,13 @@ import java.util.Date;
 @RestController
 public class BookingController {
 
+    @Autowired
+    public BookingService bookingService;
 
     @PostMapping(value ="/book")
-    @ResponseBody Booking bookVehicle(@)
+    @ResponseBody
+    public Booking bookVehicle(@RequestParam Vehicle vehicle){
 
-    @GetMapping(value ="/available/Vehicle")
-    @ResponseBody Vehicle getAvailableVehicle(@RequestParam String from, @RequestParam Date to, @RequestParam VehicleType vehicleType){
-
-        return new Vehicle();
+        return new Booking();
     }
 }
