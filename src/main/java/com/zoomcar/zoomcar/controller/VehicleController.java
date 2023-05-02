@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class VehicleController {
@@ -22,8 +23,8 @@ public class VehicleController {
 
     @GetMapping(value ="/available/Vehicle")
     @ResponseBody
-    public Vehicle getAvailableVehicle(@RequestParam String from, @RequestParam Date to, @RequestParam VehicleType vehicleType){
+    public List<Vehicle> getAvailableVehicle(@RequestParam Date from, @RequestParam Date to, @RequestParam VehicleType vehicleType){
 
-        return new Vehicle();
+        return vehicleService.getAvailableVehicles(from, to , vehicleType);
     }
 }
